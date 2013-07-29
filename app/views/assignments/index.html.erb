@@ -1,0 +1,21 @@
+<%= link_to "Add a new student" , new_student_path %> | <%= link_to "Add a new project" , new_project_path %> | <%= link_to "Track Assignments" , new_assignment_path %>
+
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th> Student </th>
+			<th> Project Title </th>
+			<th> Turned in on </th>
+			<th> Grade </th>
+			<th> Edit </th>
+			<th> Delete </th>
+		</tr>
+
+		<% @assignments.each do |x| %>
+		 <tr>
+			<th> <%= x.student.first_name %> <%= x.student.last_name %> </th>
+			<th> <%= x.project.title %> </th>
+			<th> <%= x.turned_in %> </th>
+			<th> <%= x.grade %> </th>
+		 </tr>
+		<% end %>
+	</table>
