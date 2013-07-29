@@ -10,9 +10,9 @@ class ProjectsController < ApplicationController
 		if @project.save
 			flash[:notice] = "Project has been created"
 			redirect_to assignments_path
-		else 
+		else
 			flash[:alert] = "Project has not been created"
-			redirect_to :action => "new"
+			render :action => "new"
 		end
 	end
 
@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 			flash[:notice] = "Project been updated"
 		else
 			flash[:alert] = "Project has not been updated"
-			redirect_to :action => "new"
+			render :action => "new"
 		end
 	end
 end

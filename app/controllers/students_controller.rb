@@ -10,9 +10,9 @@ class StudentsController < ApplicationController
 		if @student.save
 			flash[:notice] = "Student has been created"
 			redirect_to assignments_path
-		else 
+		else
 			flash[:alert] = "Student has not been created"
-			redirect_to :action => "new"
+			render :action => "new"
 		end
 	end
 
@@ -27,7 +27,7 @@ class StudentsController < ApplicationController
 			flash[:notice] = "Student been updated"
 		else
 			flash[:alert] = "Student has not been updated"
-			redirect_to :action => "new"
+			render :action => "new"
 		end
 	end
 end

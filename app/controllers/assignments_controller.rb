@@ -15,7 +15,7 @@ class AssignmentsController < ApplicationController
 				redirect_to assignments_path
 			else
 				flash[:alert] = "Assignment has not been updated"
-				redirect_to :action => "edit"
+				render :action => "edit"
 			end
 		end
 
@@ -30,7 +30,7 @@ class AssignmentsController < ApplicationController
 			redirect_to assignments_path
 		else
 			flash[:alert] = "Assignment has not been created"
-			redirect_to :action => "new"
+			render :action => "new"
 		end
 	end
 
