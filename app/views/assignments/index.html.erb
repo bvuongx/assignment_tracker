@@ -1,6 +1,6 @@
 <%= link_to "Add a new student" , new_student_path %> | <%= link_to "Add a new project" , new_project_path %> | <%= link_to "Track Assignments" , new_assignment_path %>
 
-	<table class="table table-bordered table-striped">
+	<table class="table table-striped">
 		<tr>
 			<th> Student </th>
 			<th> Project Title </th>
@@ -16,6 +16,8 @@
 			<th> <%= x.project.title %> </th>
 			<th> <%= x.turned_in %> </th>
 			<th> <%= x.grade %> </th>
+			<th> <%= link_to "Edit" , edit_assignment_path(x) %> </th>
+			<th> <%= link_to "Delete" , assignment_path(x),:method => :delete, :confirm => "Are you sure you want to delete this project?"  %> </th>
 		 </tr>
 		<% end %>
 	</table>

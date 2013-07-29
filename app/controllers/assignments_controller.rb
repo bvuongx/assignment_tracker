@@ -5,6 +5,7 @@ class AssignmentsController < ApplicationController
 	end
 
 	def edit
+		@assignment = Assignment.new(params[:id])
 	end
 
 	def new
