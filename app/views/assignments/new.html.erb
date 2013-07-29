@@ -1,9 +1,2 @@
-<%= form_for (@assignment) do |x| %>
-	<%= label_tag(:student_id, "Student") %>
-	<%= x.collection_select :student_id, Student.all, :id, :first_name %>
-	<%= label_tag(:project_id, "Project") %>
-	<%= x.collection_select :project_id, Project.all, :id, :title %>
-	<%= x.label :grade %>
-	<%= x.text_field :grade %>
-	<%= x.submit %>
-<% end %>
+<h1> New Assignment </h1>
+<%= render 'form' %>

@@ -1,12 +1,23 @@
 class AssignmentsController < ApplicationController
-	
+
 	def index
 		@assignments = Assignment.all
 	end
 
 	def edit
-		@assignment = Assignment.new(params[:id])
+		@assignment = Assignment.find(params[:id])
 	end
+
+	def update
+		@assignment = Assignment.find(params[:id])
+			if @assignment.update_attributes(params[:assignment])
+				flash[:notice] = "Assignment has been updated"
+				redirect_to assignments_path
+			else
+				flash[:alert] = "Assignment has not been updated"
+				redirect_to :action => "edit"
+			end
+		end
 
 	def new
 		@assignment = Assignment.new
@@ -17,12 +28,16 @@ class AssignmentsController < ApplicationController
 		if @assignment.save
 			flash[:notice] = "Assignment has been created"
 			redirect_to assignments_path
-		else 
+		else
 			flash[:alert] = "Assignment has not been created"
 			redirect_to :action => "new"
 		end
 	end
 
 	def destroy
+		@assignment = Assignment.find(params[:id])
+			@assignment.destroy
+				flash[:notice] = "Assignment has been deleted"
+				redirect_to assignments_path
 	end
 end
